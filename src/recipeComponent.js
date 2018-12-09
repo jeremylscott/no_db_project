@@ -3,8 +3,8 @@ import './App.css';
 import axios from 'axios';
 import FavHead from './favoritesHeader';
 import Favorites from './favorites'
-import UpdateRecipe from './updateRecipe'
 import Signature from './signature'
+import Search from './search'
 
 export default class RecipeComponent extends Component {
     constructor(props) {
@@ -12,7 +12,8 @@ export default class RecipeComponent extends Component {
 
         this.state = {
             recipes: [],
-            favorites: []
+            favorites: [],
+            ingredients: ''
         }
     }
 
@@ -37,8 +38,9 @@ export default class RecipeComponent extends Component {
     }
 
     handleUpdate = (id,ingredients) => {
+        // Event.preventDefault()
         axios
-            .put(`/api/recipes/${id},{text}`)
+            .put(`/api/recipes/${id}`,{ingredients})
             .then(results => {
             this.setState({
                 recipes: results.data
@@ -49,18 +51,31 @@ export default class RecipeComponent extends Component {
     addToFaves = (recipe) => {
         axios
             .post('/api/recipes', recipe)
-            .then((response) => {
+            .then(response => { 
              this.setState({
                 favorites: response.data
             })
             })
         }
 
-    render() {
-        console.log(this.state.recipes)
-        console.log(this.state.favorites);
+    updateIngredients = (text) => {
+        this.setState({
+            ingredients: text.target.value
+        })
+    }
 
-        let recipeList = this.state.recipes.map((recipe) => {
+    // searchIngredients = (text) => {
+    //     axios
+    //         .get(`/api/recipes/${ingredients}`)
+    //         .then(response => { 
+    //             this.setState({
+    //                 recipes: response.data
+    //             })
+    //         })
+    // }
+
+    render() {
+        let recipeList = this.state.recipes.filter((recipe) => recipe.ingredients.toLowerCase().includes(this.props.searchText)).map((recipe) => {
             return ( 
                 <div className='recipeWrapper' key={recipe.id}>
                     <h3 className='recipeTitle'><span>{recipe.title}</span></h3>
@@ -69,7 +84,6 @@ export default class RecipeComponent extends Component {
                         <p>Ingredients: {recipe.ingredients}</p>
                         <a href={recipe.href}>Recipe</a>
                         <button className='buttons' onClick={() => this.addToFaves(recipe)}>Add to Favorites</button>
-                        <button className='buttons' onClick={ () => this.handleUpdate(    )}>Edit</button>
                     </div>
                 </div>
             )
@@ -77,8 +91,14 @@ export default class RecipeComponent extends Component {
 
         return (
             <div>
-                {recipeList}
+                
+                <input value={this.props.searchText}
+                    onChange={this.props.updateSearchText}
+                    placeholder='Recipe search...'
+                />
 
+                {recipeList}
+    
                 {this.state.favorites.length > 0
                 ?
                     <div>
@@ -86,6 +106,9 @@ export default class RecipeComponent extends Component {
                         <Favorites 
                             favorites={this.state.favorites}
                             removeFavorite={this.removeFavorite}
+                            updateIngredients={this.updateIngredients}
+                            ingredients={this.state.ingredients}
+                            handleUpdate={this.handleUpdate}
                         />
                     </div>
                 :
@@ -94,8 +117,6 @@ export default class RecipeComponent extends Component {
                 <Signature/> 
                 
             </div>
-                
-
         )
-    }
+    };
 }

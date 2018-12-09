@@ -1,8 +1,32 @@
-.App {
+* {
+  background-color: #999999;
+}
+.headerCont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  background-color: white;
   text-align: center;
-  background-color: rgb(32, 30, 30);
-  height: 10vh;
-  width: 98vw;
+}
+.head {
+  height: 14vh;
+  background-color: white;
+  flex-grow: 1;
+  border: 2px solid black;
+}
+.logoCont {
+  display: flex;
+  flex-direction: row;
+  height: 14vh;
+  background-color: white;
+  align-items: center;
+  border: 2px solid black;
+}
+.logos {
+background-color: white;
 }
 
 

@@ -10,6 +10,10 @@ export default function Favorites (props) {
                     <div className='recipeText'>
                         <p>Ingredients: {recipe.ingredients}</p>
                         <a href={recipe.href}>Recipe</a>
+                        <form action='' onSubmit={(event) => props.handleUpdate(recipe.id,props.ingredients,event)}>
+                            <input type='text' onChange={props.updateIngredients}
+                                placeholder='Add new ingredients'/>
+                        </form>
                         <button className='buttons' onClick={() => props.removeFavorite(recipe.id)}>Delete</button>
                     </div>
                 </div>

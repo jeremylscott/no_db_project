@@ -17,6 +17,13 @@ getRecipes = (req,res) => {
     res.json(recipes)  
 }
 
+getRecipesByIngredients = (req,res) => {
+    let filt = req.params.data
+    let filtArray = []
+    filtArray = recipes.includes(recipe => recipe === filt)
+    res.json(filtArray)
+}
+
 addToFavorites = (req,res) => {
     favorites.push(req.body)
     res.json(favorites)
@@ -30,14 +37,14 @@ deleteRecipe = (req,res) => {
 }
 
 updateRecipe = (req,res) => {
-    recipes.splice(req.params.id,1,req.body.ingredients)
+    recipes.forEach(recipe => +recipe.id === +req.params.id && Object.assign(recipe, req.body))
     res.json(recipes)
 }
-
 
 module.exports = {
     getRecipes,
     addToFavorites,
     deleteRecipe,
-    updateRecipe
+    updateRecipe,
+    getRecipesByIngredients
 }
