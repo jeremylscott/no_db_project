@@ -30,8 +30,10 @@ deleteRecipe = (req,res) => {
 }
 
 updateRecipe = (req,res) => {
-    recipes.forEach(recipe => +recipe.id === +req.params.id && Object.assign(recipe, req.body))
-    res.json(recipes)
+    favorites.forEach(favorite => {+favorite.id === +req.params.id
+    if(+favorite.id === +req.params.id) {
+    favorite.ingredients = favorite.ingredients + ', ' + req.body.ingredients}})
+    res.json(favorites)
 }
 
 module.exports = {

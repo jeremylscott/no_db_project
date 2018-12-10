@@ -37,14 +37,14 @@ export default class RecipeComponent extends Component {
             })
     }
 
-    handleUpdate = (id,ingredients) => {
-        // event.preventDefault()
+    handleUpdate = (id,ingredients,e) => {
+        e.preventDefault()
         axios
             .put(`/api/recipes/${id}`,{ingredients})
             .then(results => {
-            alert('Ingredients have been changed')
             this.setState({
-                recipes: results.data
+                favorites: results.data,
+                ingredients: ''
             })
             })
     }
@@ -86,7 +86,7 @@ export default class RecipeComponent extends Component {
                 <div className='searchCont'>
                 <input className='search' value={this.props.searchText}
                     onChange={this.props.updateSearchText}
-                    placeholder='   Search recipes...'
+                    placeholder=' Search recipes......'
                 />
                 </div>
 
