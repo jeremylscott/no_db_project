@@ -3,15 +3,19 @@ let recipes = []
 let favorites = []
 
 axios.get('http://www.recipepuppy.com/api/')
-         .then(response => recipes = response.data.results.map((element,index) => {
-             return {
-                 id: index,
-                 title: element.title,
-                 thumbnail: element.thumbnail,
-                 ingredients: element.ingredients,
-                 href: element.href,
-                }
-            }))    
+         .then(response => {
+             recipes = response.data.results.map((element,index) => {
+                return {
+                    id: index,
+                    title: element.title,
+                    thumbnail: element.thumbnail,
+                    ingredients: element.ingredients,
+                    href: element.href,
+                    }
+            })
+            recipes[8].thumbnail = 'https://images.media-allrecipes.com/userphotos/250x250/329732.jpg'
+        }
+    )    
 
 getRecipes = (req,res) => {
     res.json(recipes)  

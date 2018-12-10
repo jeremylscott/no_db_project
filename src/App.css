@@ -93,6 +93,8 @@
 }
 .recipeImg {
   border: 1px solid black;
+  height: 100px;
+  width: auto;
 }
 .ingredients {
   background-color: white;
