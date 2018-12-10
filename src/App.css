@@ -45,6 +45,7 @@
   margin-top: 5vh;
   margin-left: 5vw;
   border-radius: 5px;
+  height: 33vh
 }
 .recipeTitle {
   text-decoration: underline;
