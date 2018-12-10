@@ -5,7 +5,7 @@ export default function Signature (props) {
     const name = 'Jeremy L Scott'
     return (
         <div>
-            <p>Created by: {name}</p>
+            <p className='sig'>Created by: {name}</p>
         </div>
     )
 }

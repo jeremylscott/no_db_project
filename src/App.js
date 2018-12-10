@@ -23,8 +23,7 @@ export default class App extends Component {
             <img className='logos' src={google}/>
           </div>
         </div>
-        {/* <RecipeComponent/> */}
-        <Search/>
+        <Search/> 
       </div>
     );
   }

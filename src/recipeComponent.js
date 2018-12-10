@@ -64,16 +64,6 @@ export default class RecipeComponent extends Component {
         })
     }
 
-    // searchIngredients = (text) => {
-    //     axios
-    //         .get(`/api/recipes/${ingredients}`)
-    //         .then(response => { 
-    //             this.setState({
-    //                 recipes: response.data
-    //             })
-    //         })
-    // }
-
     render() {
         let recipeList = this.state.recipes.filter((recipe) => recipe.ingredients.toLowerCase().includes(this.props.searchText)).map((recipe) => {
             return ( 
@@ -81,8 +71,8 @@ export default class RecipeComponent extends Component {
                     <h3 className='recipeTitle'><span>{recipe.title}</span></h3>
                     <img className='recipeImg' src={recipe.thumbnail}/>
                     <div className='recipeText'>
-                        <p>Ingredients: {recipe.ingredients}</p>
-                        <a href={recipe.href}>Recipe</a>
+                        <p className='ingredients'><strong className='ingredients'>Ingredients:</strong> {recipe.ingredients}</p>
+                        <a className='link' href={recipe.href}>Get recipe</a>
                         <button className='buttons' onClick={() => this.addToFaves(recipe)}>Add to Favorites</button>
                     </div>
                 </div>
@@ -92,9 +82,9 @@ export default class RecipeComponent extends Component {
         return (
             <div>
                 
-                <input value={this.props.searchText}
+                <input className='search' value={this.props.searchText}
                     onChange={this.props.updateSearchText}
-                    placeholder='Recipe search...'
+                    placeholder='   Search recipes...'
                 />
 
                 {recipeList}

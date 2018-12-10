@@ -3,8 +3,8 @@ import './App.css';
 
 export default function FavHead () {
     return (
-        <div>
-            <h1>My Favorite Recipes</h1>
+        <div className='faveHead'>
+            <h1 className='faveTitle'>My Favorite Recipes</h1>
         </div>
     )
 }

@@ -1,21 +1,30 @@
 * {
-  background-color: #999999;
+  background-color: #C4B1AE
 }
 .headerCont {
-  display: flex;
+  display: flex; 
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
 }
 .title {
-  background-color: white;
+  background-color: #BFB59E;
   text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 38px;
 }
 .head {
   height: 14vh;
-  background-color: white;
+  background-color: #B4ADA3;
   flex-grow: 1;
   border: 2px solid black;
+  
+}
+.search {
+  margin-left: 38vw;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 7px;
 }
 .logoCont {
   display: flex;
@@ -28,5 +37,64 @@
 .logos {
 background-color: white;
 }
-
-
+.recipeWrapper {
+  display: inline-block;
+  border: 2px solid black;
+  width: 25vw;
+  text-align: center;
+  margin-top: 5vh;
+  margin-left: 5vw;
+  border-radius: 5px;
+}
+.recipeTitle {
+  text-decoration: underline;
+}
+.recipeText {
+  display: flex;
+  flex-direction: column;
+}
+.faveHead {
+  height: 14vh;
+  background-color: #CAB7A2;
+  flex-grow: 1;
+  border: 2px solid black;
+  margin-top: 5vh;
+}
+.faveTitle {
+  background-color: #CAB7A2;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 38px;
+}
+.sig {
+  text-align: right;
+  margin-right: 2vw;
+}
+.buttons {
+  background-color: rgb(16, 141, 16);
+  margin-left: 7.5vw;
+  width: 10vw;
+  margin-bottom: 2vh; 
+  border-radius: 7px;
+}
+.link {
+  margin-bottom: 2vh;
+}
+.recipeImg {
+  border: 1px solid black;
+}
+.ingredients {
+  background-color: white;
+}
+.favInput {
+  background-color: white;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+}
+.buttDelet {
+  background-color: rgb(131, 32, 32);
+  margin-left: 7.5vw;
+  width: 10vw;
+  margin-bottom: 2vh; 
+  border-radius: 7px; 
+}
