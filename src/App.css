@@ -11,20 +11,20 @@
   background-color: #BFB59E;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 38px;
+  font-size: 55px;
 }
 .head {
   height: 14vh;
   background-color: #B4ADA3;
   flex-grow: 1;
   border: 2px solid black;
-  
 }
 .search {
-  margin-left: 38vw;
+  /* margin-left: 38vw; */
   background-color: white;
   border: 1px solid red;
   border-radius: 7px;
+  
 }
 .logoCont {
   display: flex;
@@ -35,7 +35,7 @@
   border: 2px solid black;
 }
 .logos {
-background-color: white;
+  background-color: white;
 }
 .recipeWrapper {
   display: inline-block;
@@ -54,21 +54,32 @@ background-color: white;
   flex-direction: column;
 }
 .faveHead {
+  display: flex;
   height: 14vh;
   background-color: #CAB7A2;
   flex-grow: 1;
   border: 2px solid black;
   margin-top: 5vh;
+  justify-content: center;
+  align-items: center;
 }
 .faveTitle {
   background-color: #CAB7A2;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 38px;
+  font-size: 55px;
+}
+.sigCont {
+  display: flex;
+  justify-content: center;
 }
 .sig {
-  text-align: right;
-  margin-right: 2vw;
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 3vh;
+  flex-grow: 1;
+  margin-bottom: 0;
 }
 .buttons {
   background-color: rgb(16, 141, 16);
@@ -97,4 +108,7 @@ background-color: white;
   width: 10vw;
   margin-bottom: 2vh; 
   border-radius: 7px; 
+}
+.searchCont {
+  margin-left: 41.85vw;
 }

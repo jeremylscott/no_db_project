@@ -4,14 +4,13 @@ import axios from 'axios';
 import FavHead from './favoritesHeader';
 import Favorites from './favorites'
 import Signature from './signature'
-import Search from './search'
 
 export default class RecipeComponent extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            recipes: [],
+            recipes: [], 
             favorites: [],
             ingredients: ''
         }
@@ -38,7 +37,7 @@ export default class RecipeComponent extends Component {
     }
 
     handleUpdate = (id,ingredients) => {
-        // Event.preventDefault()
+        // event.preventDefault()
         axios
             .put(`/api/recipes/${id}`,{ingredients})
             .then(results => {
@@ -69,7 +68,7 @@ export default class RecipeComponent extends Component {
             return ( 
                 <div className='recipeWrapper' key={recipe.id}>
                     <h3 className='recipeTitle'><span>{recipe.title}</span></h3>
-                    <img className='recipeImg' src={recipe.thumbnail}/>
+                    <img className='recipeImg' src={recipe.thumbnail} alt=''/>
                     <div className='recipeText'>
                         <p className='ingredients'><strong className='ingredients'>Ingredients:</strong> {recipe.ingredients}</p>
                         <a className='link' href={recipe.href}>Get recipe</a>
@@ -81,11 +80,12 @@ export default class RecipeComponent extends Component {
 
         return (
             <div>
-                
+                <div className='searchCont'>
                 <input className='search' value={this.props.searchText}
                     onChange={this.props.updateSearchText}
                     placeholder='   Search recipes...'
                 />
+                </div>
 
                 {recipeList}
     

@@ -6,7 +6,6 @@ import instagram from './images/instagram.svg'
 import google from './images/google.svg'
 import pinterest from './images/pinterest.svg'
 import Recipehead from './recipeHeader'
-import RecipeComponent from './recipeComponent'
 import Search from './search'
 
 export default class App extends Component {
@@ -16,11 +15,11 @@ export default class App extends Component {
         <div className='headerCont'>
           <Recipehead/> 
           <div className='logoCont'>
-            <img className='logos' src={facebook}/>
-            <img className='logos' src={twitter}/>
-            <img className='logos' src={instagram}/>
-            <img className='logos' src={pinterest}/>
-            <img className='logos' src={google}/>
+            <img className='logos' src={facebook} alt='facebook'/>
+            <img className='logos' src={twitter} alt='twitter'/>
+            <img className='logos' src={instagram} alt='instagram'/>
+            <img className='logos' src={pinterest} alt='pinterest'/>
+            <img className='logos' src={google} alt='google'/>
           </div>
         </div>
         <Search/> 

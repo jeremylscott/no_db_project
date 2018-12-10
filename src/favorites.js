@@ -6,7 +6,7 @@ export default function Favorites (props) {
             return (
                 <div className='recipeWrapper' key={recipe.id}>
                     <h3 className='recipeTitle'><span>{recipe.title}</span></h3>
-                    <img className='recipeImg' src={recipe.thumbnail}/>
+                    <img className='recipeImg' src={recipe.thumbnail} alt=''/>
                     <div className='recipeText'>
                         <p className='ingredients'><strong className='ingredients'>Ingredients: </strong> {recipe.ingredients}</p>
                         <a href={recipe.href}>Get recipe</a>
