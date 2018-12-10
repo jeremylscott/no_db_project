@@ -30,6 +30,7 @@ export default class RecipeComponent extends Component {
         axios
             .delete(`/api/recipes/${id}`)
             .then((response) => {
+            alert('Item removed from favorites.')
             this.setState({
                 favorites: response.data
             })
@@ -41,6 +42,7 @@ export default class RecipeComponent extends Component {
         axios
             .put(`/api/recipes/${id}`,{ingredients})
             .then(results => {
+            alert('Ingredients have been changed')
             this.setState({
                 recipes: results.data
             })
@@ -51,6 +53,7 @@ export default class RecipeComponent extends Component {
         axios
             .post('/api/recipes', recipe)
             .then(response => { 
+            alert('Item added to favorites!')
              this.setState({
                 favorites: response.data
             })
@@ -71,8 +74,8 @@ export default class RecipeComponent extends Component {
                     <img className='recipeImg' src={recipe.thumbnail} alt=''/>
                     <div className='recipeText'>
                         <p className='ingredients'><strong className='ingredients'>Ingredients:</strong> {recipe.ingredients}</p>
-                        <a className='link' href={recipe.href}>Get recipe</a>
-                        <button className='buttons' onClick={() => this.addToFaves(recipe)}>Add to Favorites</button>
+                        <a className='link' title='Go to recipe' href={recipe.href}>Get recipe</a>
+                        <button className='buttons' title='Add to Favorites' onClick={() => this.addToFaves(recipe)}>Add to Favorites</button>
                     </div>
                 </div>
             )
